@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blox Fruits Ultimate Hub - Fan-Made Database &amp; Update Centre</title>
+<meta name="description" content="Unofficial fan-made Blox Fruits hub: Devil Fruit database with 3D viewer, update history, comparison tool, tier list, trading guide and more.">
+<meta name="theme-color" content="#07060f">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="intro-active">
+
+<!-- ====================== CINEMATIC INTRO ====================== -->
+<section id="intro" aria-label="Intro">
+  <canvas id="intro-canvas"></canvas>
+  <div class="intro-vignette"></div>
+  <div class="intro-ui">
+    <p class="intro-kicker">FAN-MADE &middot; UNOFFICIAL</p>
+    <h1 class="sr-only">Blox Fruits Ultimate Hub</h1>
+    <div class="intro-sub">ULTIMATE HUB</div>
+    <div class="loader" id="loader">
+      <div class="loader-bar"><span id="loader-fill"></span></div>
+      <div class="loader-text" id="loader-text">Summoning fruits&hellip; 0%</div>
+    </div>
+    <button id="enter-btn" class="btn btn-gold btn-xl" disabled>ENTER THE WORLD</button>
+    <button id="skip-intro" class="link-btn" type="button">Skip intro</button>
+    <p class="intro-disclaimer">Not affiliated with Roblox Corporation or Gamer Robot Inc.</p>
+  </div>
+  <div id="flash"></div>
+</section>
+
+<!-- ====================== APP SHELL ====================== -->
+<div id="app" class="app hidden">
+  <header class="topbar">
+    <button class="icon-btn menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <a class="brand" href="#/home" aria-label="Home">
+      <span class="brand-gem"></span><span class="brand-text">BLOX FRUITS <b>HUB</b></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main navigation"></nav>
+    <div class="top-actions">
+      <button class="icon-btn" id="search-btn" aria-label="Search">&#128269;</button>
+      <button class="icon-btn" id="bell-btn" aria-label="Update notifications">&#128276;<span class="badge hidden" id="bell-badge">0</span></button>
+      <a class="icon-btn" href="#/profile" aria-label="Profile">&#128100;</a>
+    </div>
+  </header>
+
+  <main id="view" tabindex="-1"></main>
+
+  <footer class="footer">
+    <div class="footer-links" id="footer-links"></div>
+    <p class="disclaimer"><strong>Fan-made &amp; unofficial.</strong> This website is not affiliated with, endorsed by, or connected to Roblox Corporation or Gamer Robot Inc. (the developer of Blox Fruits). "Blox Fruits" and related names belong to their respective owners. The 3D logo and fruit models here are original fan creations and are not the game's artwork. Data may be out of date &mdash; always check official sources.</p>
+    <p class="muted small">Data last verified: <span id="verified-date"></span> &middot; <a href="#/admin">Admin</a> &middot; <a href="#/about">About &amp; sources</a></p>
+  </footer>
+</div>
+
+<!-- overlays -->
+<div id="search-overlay" class="overlay hidden" role="dialog" aria-label="Search">
+  <div class="overlay-card">
+    <div class="search-row"><input id="search-input" type="search" placeholder="Search fruits, updates, swords, bosses, islands&hellip;" autocomplete="off"><button class="icon-btn" id="search-close" aria-label="Close search">&#10005;</button></div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+</div>
+<div id="bell-panel" class="panel hidden" role="dialog" aria-label="Notifications"></div>
+<div id="toasts" aria-live="polite"></div>
+
+<noscript><p style="padding:2rem;color:#fff">This site needs JavaScript to run.</p></noscript>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r149/three.min.js"></script>
+<script>if(!window.THREE)document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"><\/script>')</script>
+<script>if(!window.THREE)document.write('<script src="https://unpkg.com/three@0.149.0/build/three.min.js"><\/script>')</script>
+<script>if(!window.THREE)window.THREE_FAILED=true</script>
+<script src="data/fruits.js"></script>
+<script src="data/updates.js"></script>
+<script src="data/other.js"></script>
+<script src="models/fruit-models.js"></script>
+<script src="models/logo.js"></script>
+<script src="models/soft3d.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
